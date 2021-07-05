@@ -16,9 +16,9 @@ export const UserManagement: VFC = memo(() => {
           <Spinner />
         </Center>
       ) : (
-        <Wrap p={{ base: 4, md: 10 }}>
+        <Wrap p={{ base: 4, md: 10 }} justify="center">
           {users.map((user) => (
-            <WrapItem key={user.id}>
+            <WrapItem key={user.id} mx="auto">
               <UserCard
                 imageUrl="https://source.unsplash.com/random"
                 userName={user.username}
