@@ -12,13 +12,17 @@ import {
 import { UserCard } from "../organisms/user/userCard";
 import { UserDetailModal } from "../organisms/user/UserDetailModal";
 import { useAllUsers } from "../../hooks/useAllUsers";
+import { useSelectUser } from "../../hooks/useSelectUsers";
 
 export const UserManagement: VFC = memo(() => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const { getUsers, users, loading } = useAllUsers();
+  const { onSelectUser, selectedUser } = useSelectUser();
+  console.log(selectedUser);
   useEffect(() => getUsers(), []);
   const onClickUser = useCallback((id: number) => {
     console.log(id);
+    onSelectUser({ id, users });
     onOpen();
   }, []);
   return (
