@@ -4,14 +4,17 @@ import { User } from "../types/api/user";
 type Props = {
   id: number;
   users: Array<User>;
+  onOpen: () => void;
 };
 
+// 選択したユーザー情報を特定しモーダルを表示するカスタム服
 export const useSelectUser = () => {
-  const [selectedUser, setSElectedUser] = useState<User | null>(null);
+  const [selectedUser, setSelectedUser] = useState<User | null>(null);
   const onSelectUser = useCallback((props: Props) => {
-    const { id, users } = props;
+    const { id, users, onOpen } = props;
     const targetUser = users.find((user) => user.id === id);
-    setSElectedUser(targetUser!);
+    setSelectedUser(targetUser!);
+    onOpen();
   }, []);
   return { onSelectUser, selectedUser };
 };
