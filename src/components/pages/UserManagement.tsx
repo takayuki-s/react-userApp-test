@@ -20,11 +20,14 @@ export const UserManagement: VFC = memo(() => {
   const { onSelectUser, selectedUser } = useSelectUser();
   console.log(selectedUser);
   useEffect(() => getUsers(), []);
-  const onClickUser = useCallback((id: number) => {
-    console.log(id);
-    onSelectUser({ id, users });
-    onOpen();
-  }, []);
+  const onClickUser = useCallback(
+    (id: number) => {
+      console.log(id);
+      onSelectUser({ id, users });
+      onOpen();
+    },
+    [users]
+  );
   return (
     <>
       {loading ? (
