@@ -18,7 +18,7 @@ export const UserCard: VFC<Props> = memo((props) => {
       bg="white"
       borderRadius="10px"
       shadow="md"
-      P={4}
+      p={4}
       _hover={{ cursor: "pointer", opacity: 0.8 }}
       onClick={() => onClick(id)}
     >
