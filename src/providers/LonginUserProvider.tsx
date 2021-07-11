@@ -12,7 +12,7 @@ type LoginUser = User & { isAdmin: boolean };
 
 export type LoginUserContextType = {
   loginUser: LoginUser | null;
-  setLoginUser: Dispatch<SetStateAction<User | null>>;
+  setLoginUser: Dispatch<SetStateAction<LoginUser | null>>;
 };
 
 export const LoginUserContext = createContext<LoginUserContextType>(
